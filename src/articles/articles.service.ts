@@ -55,7 +55,7 @@ export class ArticlesService {
   // }
 // 
   delete(id: string) { 
-    this.articleRepository.delete(id)
+    return this.articleRepository.delete(id)
   }
     // this.articles = this.articles.filter(article => article.id !== id);
   // }
