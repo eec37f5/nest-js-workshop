@@ -26,7 +26,9 @@ export class ArticlesService {
   }
 
   create(input: CreateArticleInput) {
-    const article = this.articleRepository.create(input)  // ทำการ return entity == บรรทัด 30-32
+    const article = this.articleRepository.create(input)  // ทำการ return entity == บรรทัด 32-34
+    this.articleRepository.save(article)
+
     // const article = new Article()
     // article.title = input.title
     // article.body = input.body
