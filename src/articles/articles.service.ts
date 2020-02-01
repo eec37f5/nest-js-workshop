@@ -40,7 +40,11 @@ export class ArticlesService {
     // return article;
   // }
 // 
-  update(id: string, input: UpdateArticleInput) { }
+  async update(id: string, input: UpdateArticleInput) {
+    let article = await this.articleRepository.findOne(id)
+    article = this.articleRepository.merge(article, input)  //.merge(ข้อมูลตั้งต้น,entity) ->  เอาตัวหลังทับตัวหน้า
+    this.articleRepository.save(article)
+  }
     // let article = this.articles.find(article => article.id === id);
 // 
     // for (let key in input) {
@@ -50,7 +54,9 @@ export class ArticlesService {
     // return article;
   // }
 // 
-  delete(id: string) { }
+  delete(id: string) { 
+    this.articleRepository.delete(id)
+  }
     // this.articles = this.articles.filter(article => article.id !== id);
   // }
 }
